@@ -1,0 +1,128 @@
+🦁 Projekt: Zoo System – MVP
+🎯 Cel projektu
+
+Stworzenie prostego, rozszerzalnego systemu do zarządzania zwierzętami w zoo.
+System ma umożliwiać dodawanie zwierząt, wyświetlanie ich informacji oraz tworzenie harmonogramu karmienia.
+Projekt wykorzystuje zasady programowania obiektowego (OOP):
+
+Dziedziczenie – klasy zwierząt dziedziczą po klasie bazowej Animal,
+
+Polimorfizm – różne zwierzęta mają własne implementacje metody feed(),
+
+Interfejsy – Feedable definiuje wspólne zachowanie dla karmienia,
+
+Rozszerzalność – można łatwo dodać nowe gatunki.
+
+📂 Struktura projektu (6 plików)
+
+Animal.java
+
+Feedable.java
+
+Lion.java
+
+Elephant.java
+
+Monkey.java
+
+ZooApp.java (main z harmonogramem karmienia)
+
+1️.Animal.java
+
+Opis: Klasa bazowa reprezentująca każde zwierzę w zoo.
+Pola:
+
+name – imię zwierzęcia
+
+age – wiek
+
+species – gatunek
+
+Metody:
+
+konstruktor ustawiający pola,
+
+metoda getInfo() zwracająca opis zwierzęcia,
+
+toString() – ułatwia wypisywanie danych o zwierzętach.
+
+Dziedziczenie: Klasy Lion, Elephant, Monkey dziedziczą po Animal.
+
+2️.Feedable.java
+
+Opis: Interfejs definiujący zachowanie dla karmienia zwierząt.
+Metoda:
+
+void feed() – metoda abstrakcyjna, która określa sposób karmienia danego zwierzęcia.
+
+Dzięki interfejsowi każde zwierzę można karmić w inny sposób, ale wszystkie klasy mają wspólny punkt odniesienia (feed()).
+
+3️.Lion.java
+
+Opis: Klasa reprezentująca lwa.
+Dziedziczy po: Animal
+Implementuje: Feedable
+
+Zachowanie:
+
+Metoda feed() wypisuje np. „Lew Simba dostaje surowe mięso o 12:00.”
+
+Można dodać własne metody specyficzne dla lwa (np. roar() – ryczy).
+
+4️.Elephant.java
+
+Opis: Klasa reprezentująca słonia.
+Dziedziczy po: Animal
+Implementuje: Feedable
+
+Zachowanie:
+
+Metoda feed() wypisuje np. „Słoń Bimbo dostaje owoce i warzywa o 10:00.”
+
+Można dodać np. sprayWater() – zabawa wodą.
+
+5️.Monkey.java
+
+Opis: Klasa reprezentująca małpę.
+Dziedziczy po: Animal
+Implementuje: Feedable
+
+Zachowanie:
+
+Metoda feed() wypisuje np. „Małpa Koko dostaje banany o 9:00.”
+
+Można dodać climbTree() – wspinanie się po drzewach.
+
+6️.ZooApp.java (Main)
+
+Opis: Punkt wejścia do programu.
+Funkcjonalność:
+
+Tworzy obiekty różnych zwierząt (Lew, Słoń, Małpa).
+
+Przechowuje je w liście np. ArrayList<Feedable>.
+
+Iteruje po liście i wywołuje metodę feed() dla każdego zwierzęcia (polimorfizm).
+
+Wyświetla harmonogram karmienia wszystkich zwierząt.
+
+Przykład działania:
+
+Harmonogram karmienia:
+Lew Simba dostaje surowe mięso o 12:00.
+Słoń Bimbo dostaje owoce i warzywa o 10:00.
+Małpa Koko dostaje banany o 9:00.
+
+🧩 Rozszerzalność projektu
+
+Aby dodać nowe zwierzę, wystarczy stworzyć nową klasę (np. Giraffe.java) dziedziczącą po Animal i implementującą Feedable.
+
+System sam obsłuży ją w harmonogramie dzięki interfejsowi i polimorfizmowi.
+
+💡 Cechy OOP w tym projekcie
+Cechy OOP	Przykład w projekcie
+Abstrakcja	Klasa Animal i interfejs Feedable ukrywają szczegóły karmienia.
+Dziedziczenie	Lion, Elephant, Monkey dziedziczą po Animal.
+Polimorfizm	Metoda feed() działa różnie w zależności od gatunku.
+Enkapsulacja	Pola Animal są prywatne, dostęp przez gettery.
+Rozszerzalność	Dodanie nowego zwierzęcia wymaga tylko nowej klasy.
